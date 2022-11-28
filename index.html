@@ -91,7 +91,7 @@
         var time1 = parseInt(h1.value) * 60 + parseInt(m1.value);
         var time2 = parseInt(h2.value) * 60 + parseInt(m2.value);
         var time3 = parseInt(h3.value) * 60 + parseInt(m3.value);
-        var leave = time3 + (parseInt(7 * 60 + 48) - (time2 - time1))
+        var leave = time3 + (parseInt(8 * 60) - (time2 - time1))
         var hour = Math.floor(leave / 60);
         var minute = leave % 60;
         res.innerHTML = "You can leave at : <b>" + hour + "h" + minute + "</b>";
