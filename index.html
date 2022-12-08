@@ -17,15 +17,36 @@
     <body>
         <div class="container mt-4">
 
-            <h1 class="mb-4" >End of the day ?</h1>
+            <h1>End of the day ?</h1>
+
+            <hr class="my-4">
             
             <form class="mb-4">
 
+                <h5>How many hours do you have to do in a day?</h5>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group col-6">
+                            <span class="input-group-text">Hours</span>
+                            <input id="hDay" type="text" class="form-control" value="7">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group col-6">
+                            <span class="input-group-text">Minutes</span>
+                            <input id="mDay" type="text" class="form-control" value="48">
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h5>Enter the time you arrived at work, the time you will eat and the time you finished eating.</h5>
                 <div class="row">
                     <div class="col-6">
                         <div class="input-group mb-3 col-6">
                             <span class="input-group-text">Hour 1</span>
-                            <input id="h1" type="text" class="form-control" placeholder="ex : 8">
+                            <input id="h1" type="text" class="form-control" placeholder="ex : 8" autofocus>
                         </div>
                     </div>
                     <div class="col-6">
@@ -66,6 +87,8 @@
                     </div>
                 </div>
 
+                <hr class="my-4">
+
                 <button id="submit" class="btn btn-primary" type="submit">Submit</button>
 
             </form>
@@ -76,25 +99,4 @@
     </body>
 </html>
 
-<script>
-    var h1 = document.getElementById("h1");
-    var m1 = document.getElementById("m1");
-    var h2 = document.getElementById("h2");
-    var m2 = document.getElementById("m2");
-    var h3 = document.getElementById("h3");
-    var m3 = document.getElementById("m3");
-    var submit = document.getElementById("submit");
-    var res = document.getElementById("res");
-
-    submit.addEventListener("click", function(e){
-        e.preventDefault();
-        var time1 = parseInt(h1.value) * 60 + parseInt(m1.value);
-        var time2 = parseInt(h2.value) * 60 + parseInt(m2.value);
-        var time3 = parseInt(h3.value) * 60 + parseInt(m3.value);
-        var leave = time3 + (parseInt(8 * 60) - (time2 - time1))
-        var hour = Math.floor(leave / 60);
-        var minute = leave % 60;
-        res.innerHTML = "You can leave at : <b>" + hour + "h" + minute + "</b>";
-        res.classList.add("alert", "alert-success");
-    });
-</script>
+<script type="text/javascript" src="./functions/calcHour.js"></script>
